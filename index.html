@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Collapse</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1, p {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clickable-image {
+            max-width: 100%; 
+            max-height: 100vh; 
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="image-container">
+        <img id="clickableImage" src="docs/page1.jpg" alt="Image 1" class="clickable-image">
+    </div>
+
+    <script>
+        // Array of image file paths
+        const imagePaths = [
+            'docs/page1.jpg',
+            'docs/Page2.jpg',
+            'docs/page3.jpg',
+            'docs/page4.jpg',
+            'docs/page5.jpg',
+            'docs/page6.jpg',
+            'docs/page7.jpg',
+            'docs/page 8.jpg',
+            'docs/page9.jpg',
+            'docs/page 10.jpg'
+        ];
+
+        let currentIndex = 0;
+        const imageElement = document.getElementById('clickableImage');
+
+        // Function to change image on click
+        imageElement.addEventListener('click', () => {
+            currentIndex++;
+            if (currentIndex >= imagePaths.length) {
+                currentIndex = 0; // Loops back to the first image
+            }
+            imageElement.src = imagePaths[currentIndex]; // Instantly change the image source
+        });
+    </script>
+
+   
+</body>
+</html>
